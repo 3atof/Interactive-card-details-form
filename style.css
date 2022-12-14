@@ -1,0 +1,158 @@
+:root{
+    --cl-primary-400:hsl(158, 36%, 37%);
+    --cl-primary-500:hsl(158, 36%, 17%);
+    --cl-secondary-200:hsl(30, 38%, 92%);
+
+    --cl-natural-900:hsl(212, 21%, 14%);
+    --cl-natural-400:hsl(228, 12%, 48%);
+    --cl-natural-100:hsl(0, 0%, 100%);
+
+    --ff-accent: 'Fraunces', serif;
+    --ff-base: 'Montserrat', sans-serif;
+
+    --fw-regular:500;
+    --fw-bold:700;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3{
+    line-height: 1;
+  }
+
+  /*general styling*/
+
+  body{
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    font-size: 14px;
+    color: var(--cl-natural-400);
+    background-color: var(--cl-secondary-200);
+
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+  }
+
+  .flex__group{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .product{
+
+    --content-spacing:1rem;
+    --content-padding:1.5rem;
+
+    display: grid;
+    background-color: var(--cl-natural-100);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-width: 600px;
+  }
+  
+  @media (min-width:600px) {
+    .product{
+        grid-template-columns: 1fr 1fr;
+        --content-padding:2rem;
+
+    }
+}
+
+  .product__content{
+    display: grid;
+    gap: var(--content-spacing);
+    padding: var(--content-padding);
+  }
+
+  .product__category{
+    font-size: .8125rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .product__title{
+    font-size: 2rem;
+    font-family: var(--ff-accent);
+    color: var(--cl-natural-900);
+  }
+
+  .product__price{
+    font-size: 2rem;
+    font-family: var(--ff-accent);
+    color: var(--cl-primary-400);
+  }
+  .product__original-price{
+    text-decoration: line-through;
+  }
+  .button{
+    cursor: pointer;
+    text-decoration: none;
+    border: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--cl-primary-400);
+    border-radius: 7px;
+    padding: 12px;
+    color: var(--cl-natural-100);
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .button[data-icon="shopping-cart"]::before{
+    content: "";
+    width: 15px;
+    height: 16px;
+    background-image: url("images/icon-cart.svg");
+  }
+  .button:hover,.button:focus{
+    background-color: var(--cl-primary-500);
+  }
